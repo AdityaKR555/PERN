@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Shontact</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button type="button" id="themeToggle" class="theme-toggle">
+      🌙
+    </button>
+
+    <div id="container">
+      <form id="contactForm">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label for="phone">Phone no.:</label>
+          <input type="text" id="phone" name="phone" required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Save Contact</button>
+      </form>
+      <div id="contactsList">
+        <h2>Saved Contacts</h2>
+        <ul id="contacts">
+          <!-- <li>
+            <div class="contact-header">
+              <div class="contact-avatar">A</div>
+              <div>
+                <div class="contact-name">Aditya Kumar</div>
+                <div class="contact-label">Saved Contact</div>
+              </div>
+            </div>
+
+            <div class="contact-details">
+              <div class="contact-detail">
+                <strong>Phone</strong>
+                <span>9876543210</span>
+              </div>
+              <div class="contact-detail">
+                <strong>Email</strong>
+                <span>aditya@example.com</span>
+              </div>
+            </div>
+
+            <div class="contact-message">Need to discuss the project.</div>
+
+            <div class="contact-actions">
+              <button type="button" class="update-btn">✏️ Update</button>
+              <button type="button" class="delete-btn">🗑️ Delete</button>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,478 @@
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --danger: #ef4444;
+    --success: #16a34a;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --surface: #ffffff;
+    --background: #f1f5f9;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background:
+        radial-gradient(circle at top left, #e0e7ff 0, transparent 35%),
+        linear-gradient(135deg, #f8fafc, #eef2ff);
+    color: var(--text);
+}
+
+/* ===== Main Layout ===== */
+#container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+    gap: 28px;
+}
+
+/* ===== Contact Form ===== */
+#contactForm,
+#contactsList {
+    background: var(--surface);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+#contactForm::before {
+    content: "CONTACT SHONTACT";
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+#contactForm > div {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+#contactForm label {
+    font-size: 14px;
+    font-weight: 650;
+    color: #334155;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: #f8fafc;
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s,
+                background 0.2s;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    background: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+#contactForm textarea {
+    min-height: 115px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+#contactForm button {
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(99, 102, 241, 0.2);
+    transition: background 0.2s, transform 0.2s;
+}
+
+#contactForm button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+#contactForm button:active {
+    transform: translateY(0);
+}
+
+/* ===== Saved Contacts Section ===== */
+#contactsList {
+    min-width: 0;
+}
+
+#contactsList h2 {
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 750;
+    letter-spacing: -0.7px;
+}
+
+#contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+}
+
+/* ===== Individual Contact Card ===== */
+#contacts li {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s,
+                transform 0.2s;
+    overflow-wrap: anywhere;
+}
+
+#contacts li:hover {
+    border-color: #c7d2fe;
+    box-shadow: 0 7px 20px rgba(15, 23, 42, 0.05);
+    transform: translateY(-2px);
+}
+
+.contact-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 16px;
+}
+
+.contact-avatar {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #eef2ff;
+    color: var(--primary-dark);
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.contact-name {
+    font-size: 16px;
+    font-weight: 750;
+    color: #0f172a;
+}
+
+.contact-label {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 18px;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.contact-detail strong {
+    min-width: 65px;
+    color: #334155;
+}
+
+.contact-message {
+    padding: 12px;
+    border-radius: 9px;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* ===== Update & Delete Buttons ===== */
+.contact-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.contact-actions button {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.update-btn {
+    background: #eef2ff;
+    color: #4338ca;
+    border-color: #e0e7ff !important;
+}
+
+.update-btn:hover {
+    background: #e0e7ff;
+}
+
+.delete-btn {
+    background: #fef2f2;
+    color: #dc2626;
+    border-color: #fee2e2 !important;
+}
+
+.delete-btn:hover {
+    background: #fee2e2;
+}
+
+.contact-actions button:active {
+    transform: scale(0.98);
+}
+
+/* ===== Empty State (Optional) ===== */
+.empty-state {
+    padding: 35px 15px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.empty-state span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 760px) {
+    body {
+        padding: 22px 14px;
+    }
+
+    #container {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        max-width: 540px;
+    }
+
+    #contactForm,
+    #contactsList {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    #contactsList h2 {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 380px) {
+    #contactForm,
+    #contactsList {
+        padding: 17px;
+    }
+
+    #contacts li {
+        padding: 15px;
+    }
+
+    .contact-actions {
+        gap: 8px;
+    }
+}
+
+
+/* Dark mode toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark theme colors */
+body.dark-mode {
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: #334155;
+    --surface: #1e293b;
+
+    background: #0f172a;
+    color: var(--text);
+}
+
+/* Cards and form */
+body.dark-mode #contactForm,
+body.dark-mode #contactsList {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+body.dark-mode #contactForm label,
+body.dark-mode .contact-detail strong,
+body.dark-mode .contact-name {
+    color: #e2e8f0;
+}
+
+body.dark-mode #contactForm input,
+body.dark-mode #contactForm textarea {
+    background: #0f172a;
+    color: #f1f5f9;
+    border-color: var(--border);
+}
+
+body.dark-mode #contactForm input:focus,
+body.dark-mode #contactForm textarea:focus {
+    border-color: var(--primary);
+    background: #111c30;
+}
+
+body.dark-mode #contacts li {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+body.dark-mode .contact-avatar {
+    background: #312e81;
+    color: #c7d2fe;
+}
+
+body.dark-mode .contact-label,
+body.dark-mode .contact-detail,
+body.dark-mode .contact-message {
+    color: #cbd5e1;
+}
+
+body.dark-mode .contact-message {
+    background: #0f172a;
+}
+
+body.dark-mode .contact-actions {
+    border-color: var(--border);
+}
+
+body.dark-mode .update-btn {
+    background: #312e81;
+    color: #c7d2fe;
+    border-color: #4338ca !important;
+}
+
+body.dark-mode .delete-btn {
+    background: #450a0a;
+    color: #fecaca;
+    border-color: #7f1d1d !important;
+}
+
+body.dark-mode .theme-toggle {
+    background: #1e293b;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+/* Keep toggle usable on small screens */
+@media (max-width: 760px) {
+    .theme-toggle {
+        position: static;
+        display: block;
+        margin: 0 auto 20px;
+    }
+}
+
+
+/* Smooth theme transition */
+body,
+#contactForm,
+#contactsList,
+#contacts li,
+#contactForm input,
+#contactForm textarea,
+#contactForm label,
+#contactsList h2,
+.contact-name,
+.contact-detail,
+.contact-detail strong,
+.contact-message,
+.contact-avatar,
+.contact-actions,
+.theme-toggle,
+.update-btn,
+.delete-btn {
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Smooth background transition */
+body {
+    transition: background 0.4s ease, color 0.35s ease;
+}
+
+/* Subtle button animation */
+.theme-toggle {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.18);
+}
+
+.theme-toggle:active {
+    transform: scale(0.96);
+}
